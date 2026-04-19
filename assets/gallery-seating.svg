@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ruma 52 seating illustration</title>
+  <desc id="desc">An abstract interior scene with chairs, a table, and striped daylight.</desc>
+  <rect width="900" height="900" fill="#3a281f"/>
+  <rect x="510" y="90" width="250" height="420" rx="12" fill="#f0dfc6"/>
+  <g fill="#cfab81">
+    <rect x="536" y="90" width="18" height="420"/>
+    <rect x="570" y="90" width="18" height="420"/>
+    <rect x="604" y="90" width="18" height="420"/>
+    <rect x="638" y="90" width="18" height="420"/>
+    <rect x="672" y="90" width="18" height="420"/>
+    <rect x="706" y="90" width="18" height="420"/>
+  </g>
+  <circle cx="270" cy="188" r="84" fill="#efe5d8"/>
+  <ellipse cx="270" cy="208" rx="110" ry="20" fill="#b08b66" opacity="0.28"/>
+  <ellipse cx="396" cy="566" rx="160" ry="48" fill="#7e5f47"/>
+  <rect x="380" y="566" width="32" height="200" rx="16" fill="#241812"/>
+  <g fill="#241812">
+    <rect x="136" y="632" width="18" height="148" rx="9"/>
+    <rect x="232" y="632" width="18" height="148" rx="9"/>
+    <rect x="122" y="616" width="144" height="18" rx="9"/>
+    <rect x="108" y="564" width="172" height="18" rx="9"/>
+  </g>
+  <g fill="#241812">
+    <rect x="610" y="650" width="18" height="132" rx="9"/>
+    <rect x="704" y="650" width="18" height="132" rx="9"/>
+    <rect x="596" y="634" width="144" height="18" rx="9"/>
+    <rect x="582" y="586" width="172" height="18" rx="9"/>
+  </g>
+  <text x="70" y="836" font-family="Georgia, serif" font-size="44" letter-spacing="6" fill="#efe5d8">SEATING NOOK</text>
+</svg>

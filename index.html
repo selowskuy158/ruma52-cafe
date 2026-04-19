@@ -84,7 +84,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url("https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover1'-2.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424");
+    background-image: url("assets/hero-scene.svg");
     background-size: cover; background-position: center 30%;
     transform: scale(1.08);
     transition: transform 0.1s linear;
@@ -513,20 +513,6 @@
   }
   .footer-copy { font-size: 12px; color: rgba(245,240,232,0.3); }
 
-  /* ── TWEAKS PANEL ── */
-  #tweaks-panel {
-    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 999;
-    background: white; border: 1px solid var(--cream-mid);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-    width: 280px; padding: 24px; border-radius: 2px;
-  }
-  #tweaks-panel.show { display: block; }
-  #tweaks-panel h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--espresso); margin-bottom: 20px; }
-  .tweak-row { margin-bottom: 16px; }
-  .tweak-row label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown-mid); display: block; margin-bottom: 6px; }
-  .tweak-row input[type=range] { width: 100%; cursor: pointer; }
-  .tweak-row select { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px; border: 1px solid var(--cream-mid); background: white; color: var(--espresso); cursor: pointer; }
-
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
@@ -548,34 +534,13 @@
   }
 </style>
 
-<template id="__bundler_thumbnail" data-bg-color="#2c1a0e">
-  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-    <rect width="400" height="300" fill="#2c1a0e"/>
-    <!-- House shape -->
-    <path d="M160 160 L160 220 L240 220 L240 160 L200 130 Z" fill="#f5f0e8" opacity="0.9"/>
-    <!-- Spoon -->
-    <ellipse cx="185" cy="175" rx="6" ry="9" fill="#2c1a0e"/>
-    <rect x="183" y="184" width="4" height="18" fill="#2c1a0e"/>
-    <!-- Fork -->
-    <rect x="197" y="168" width="2" height="8" fill="#2c1a0e"/>
-    <rect x="201" y="168" width="2" height="8" fill="#2c1a0e"/>
-    <rect x="197" y="176" width="6" height="3" fill="#2c1a0e"/>
-    <rect x="199" y="179" width="2" height="13" fill="#2c1a0e"/>
-    <!-- 52 badge -->
-    <circle cx="230" cy="172" r="12" fill="#f5f0e8"/>
-    <text x="230" y="177" text-anchor="middle" font-size="10" fill="#2c1a0e" font-family="sans-serif" font-weight="bold">52</text>
-    <!-- Brand name -->
-    <text x="200" y="250" text-anchor="middle" font-size="18" fill="#c4a882" font-family="Georgia, serif" letter-spacing="4">RUMA 52</text>
-    <text x="200" y="268" text-anchor="middle" font-size="9" fill="rgba(245,240,232,0.5)" font-family="sans-serif" letter-spacing="2">HOME CAFE</text>
-  </svg>
-</template>
 </head>
 <body data-cc-id="cc-1">
 
 <!-- NAV -->
 <nav id="main-nav" class="" data-cc-id="cc-4">
   <a href="#hero" class="nav-logo">
-    <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/logo%20.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52">
+    <img src="assets/logo-ruma52.svg" alt="Ruma 52">
     Ruma 52
   </a>
   <ul class="nav-links">
@@ -611,7 +576,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="reveal-left about-image-wrap visible">
-        <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover1'-2.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52 interior seating area">
+        <img src="assets/hero-scene.svg" alt="Ruma 52 interior seating area">
         <div class="about-image-tag">Est. 2026 · Lippo Karawaci</div>
       </div>
       <div class="about-text reveal-right visible">
@@ -688,7 +653,7 @@
           <span class="menu-card-tag">Premium</span>
         </div>
       </div>
-      <div class="menu-card" style="background: url('https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.00%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424') center/cover; grid-column: span 2; min-height: 240px; position: relative;">
+      <div class="menu-card" style="background: url('assets/menu-ritual.svg') center/cover; grid-column: span 2; min-height: 240px; position: relative;">
         <div style="position:absolute;inset:0;background:rgba(44,26,14,0.55);"></div>
         <div style="position:relative;z-index:1;color:white;">
           <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7;margin-bottom:10px;">Crafted with care</div>
@@ -727,7 +692,7 @@
     </div>
 
     <div class="menu-cta-row reveal visible">
-      <a href="img/menu.png" target="_blank" class="btn-outline">View Full Menu</a>
+      <a href="assets/menu-sheet.svg" target="_blank" class="btn-outline">View Full Menu</a>
     </div>
   </div>
 </section>
@@ -740,11 +705,11 @@
       <h2 class="section-title">Come as you are.<br><em>Stay as long as you like.</em></h2>
     </div>
     <div class="gallery-grid">
-      <div class="g-item g1 reveal visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.47.37%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Seating area"></div>
-      <div class="g-item g2 reveal delay-1 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/lamp.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Cafe detail"></div>
-      <div class="g-item g3 reveal delay-2 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.47%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Interior detail"></div>
-      <div class="g-item g4 reveal delay-1 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.49.45%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Coffee bar"></div>
-      <div class="g-item g5 reveal delay-3 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.10%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Outdoor terrace"></div>
+      <div class="g-item g1 reveal visible"><img src="assets/gallery-seating.svg" alt="Seating area"></div>
+      <div class="g-item g2 reveal delay-1 visible"><img src="assets/gallery-lantern.svg" alt="Cafe detail"></div>
+      <div class="g-item g3 reveal delay-2 visible"><img src="assets/gallery-bar.svg" alt="Interior detail"></div>
+      <div class="g-item g4 reveal delay-1 visible"><img src="assets/gallery-bar.svg" alt="Coffee bar"></div>
+      <div class="g-item g5 reveal delay-3 visible"><img src="assets/gallery-terrace.svg" alt="Outdoor terrace"></div>
     </div>
     <p class="gallery-caption reveal visible">"Every corner was placed with intention."</p>
   </div>
@@ -820,7 +785,7 @@
             <a href="https://maps.google.com/maps/search/ruma+52+lippo+karawaci" target="_blank">Open in Google Maps →</a>
           </div>
         </div>
-        <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52 entrance" style="width:100%;height:260px;object-fit:cover;display:block;margin-top:4px;">
+        <img src="assets/visit-scene.svg" alt="Ruma 52 entrance" style="width:100%;height:260px;object-fit:cover;display:block;margin-top:4px;">
       </div>
     </div>
   </div>
@@ -861,11 +826,11 @@
       <p class="insta-sub">Follow along for daily moments, seasonal specials, and the occasional vinyl update.</p>
     </div>
     <div class="insta-grid reveal visible">
-      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.47.37%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
-      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.00%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
-      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.35%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
-      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.24%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
-      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.29%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+      <div class="insta-item"><img src="assets/gallery-seating.svg" alt="Ruma 52 seating"></div>
+      <div class="insta-item"><img src="assets/menu-ritual.svg" alt="Ruma 52 coffee still life"></div>
+      <div class="insta-item"><img src="assets/gallery-lantern.svg" alt="Ruma 52 lighting detail"></div>
+      <div class="insta-item"><img src="assets/gallery-bar.svg" alt="Ruma 52 coffee bar"></div>
+      <div class="insta-item"><img src="assets/gallery-terrace.svg" alt="Ruma 52 terrace"></div>
     </div>
     <div class="insta-cta reveal">
       <a href="https://instagram.com/ruma____52" target="_blank" class="btn-insta">
@@ -881,7 +846,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand-logo">
-          <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/logo%20.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52">
+          <img src="assets/logo-ruma52.svg" alt="Ruma 52">
           <span class="footer-brand-name">Ruma 52</span>
         </div>
         <p class="footer-tagline">An old house turned cozy home cafe. Where every cup is a quiet moment.</p>
@@ -914,39 +879,7 @@
   </div>
 </footer>
 
-<!-- TWEAKS PANEL -->
-<div id="tweaks-panel" class="show">
-  <h3>Tweaks</h3>
-  <div class="tweak-row">
-    <label>Accent Color</label>
-    <select id="tweak-accent" onchange="applyTweaks()">
-      <option value="sage">Sage Green (default)</option>
-      <option value="latte">Warm Latte</option>
-      <option value="terracotta">Terracotta</option>
-      <option value="dustyblue">Dusty Blue</option>
-    </select>
-  </div>
-  <div class="tweak-row">
-    <label>Type Scale</label>
-    <input type="range" id="tweak-scale" min="90" max="115" value="100" oninput="applyTweaks()">
-  </div>
-  <div class="tweak-row">
-    <label>Section Spacing</label>
-    <select id="tweak-spacing" onchange="applyTweaks()">
-      <option value="140">Spacious (default)</option>
-      <option value="100">Compact</option>
-      <option value="180">Airy</option>
-    </select>
-  </div>
-</div>
-
 <script>
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "latte",
-  "scale": 108,
-  "spacing": 140
-}/*EDITMODE-END*/;
-
 // NAV scroll
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
@@ -983,48 +916,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
   });
 });
-
-// Tweaks
-const accents = {
-  sage: { sage: 'oklch(52% 0.07 148)', latte: 'oklch(72% 0.07 65)' },
-  latte: { sage: 'oklch(65% 0.09 60)', latte: 'oklch(78% 0.06 55)' },
-  terracotta: { sage: 'oklch(55% 0.1 35)', latte: 'oklch(70% 0.08 45)' },
-  dustyblue: { sage: 'oklch(52% 0.08 220)', latte: 'oklch(72% 0.06 210)' },
-};
-
-function applyTweaks() {
-  const ac = document.getElementById('tweak-accent').value;
-  const sc = document.getElementById('tweak-scale').value;
-  const sp = document.getElementById('tweak-spacing').value;
-  const root = document.documentElement;
-  root.style.setProperty('--sage', accents[ac].sage);
-  root.style.setProperty('--latte', accents[ac].latte);
-  document.querySelectorAll('.section-title').forEach(el => {
-    el.style.fontSize = '';
-  });
-  root.style.fontSize = sc + '%';
-  document.querySelectorAll('#about, #menu, #gallery, #experience, #visit, #testimonials, #instagram').forEach(el => {
-    el.style.paddingTop = sp + 'px';
-    el.style.paddingBottom = sp + 'px';
-  });
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { accent: ac, scale: parseInt(sc), spacing: parseInt(sp) } }, '*');
-}
-
-// Load saved tweaks
-(function() {
-  const d = TWEAK_DEFAULTS;
-  document.getElementById('tweak-accent').value = d.accent;
-  document.getElementById('tweak-scale').value = d.scale;
-  document.getElementById('tweak-spacing').value = d.spacing;
-  applyTweaks();
-})();
-
-// Tweaks panel activation
-window.addEventListener('message', (e) => {
-  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('show');
-  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('show');
-});
-window.parent.postMessage({ type: '__edit_mode_available' }, '*');
 </script>
 
 

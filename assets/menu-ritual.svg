@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ruma 52 menu feature art</title>
+  <desc id="desc">An editorial still life with coffee, pastry, and linen in warm tones.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6e4c37"/>
+      <stop offset="100%" stop-color="#2a1e18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="280" cy="190" r="220" fill="#a37b5b" opacity="0.18"/>
+  <circle cx="1000" cy="760" r="260" fill="#f5e6d2" opacity="0.08"/>
+  <rect x="132" y="174" width="936" height="548" rx="18" fill="#8e684b"/>
+  <rect x="152" y="194" width="896" height="508" rx="16" fill="#cfae86"/>
+  <path d="M152 570c118-48 234-72 348-72 164 0 346 38 548 114v90H152Z" fill="#ddc4a4"/>
+  <ellipse cx="376" cy="466" rx="146" ry="56" fill="#f6efe6"/>
+  <path d="M252 466h248c0 118-36 178-124 178s-124-60-124-178Z" fill="#fffaf2"/>
+  <path d="M304 420c0-28 22-50 50-50M352 420c0-38 30-68 68-68" fill="none" stroke="#fffaf2" stroke-width="10" stroke-linecap="round"/>
+  <g transform="translate(694 506)">
+    <path d="M0 0c40-72 90-126 150-162 72 34 110 90 114 168-42 56-102 102-180 140-64-38-92-86-84-146Z" fill="#7a553d"/>
+    <path d="M28 38c26 32 62 48 108 48 50 0 94-16 132-48" fill="none" stroke="#efdfc9" stroke-width="12" stroke-linecap="round"/>
+    <path d="M64 112c44 22 92 22 144 0" fill="none" stroke="#efdfc9" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <rect x="210" y="604" width="760" height="54" rx="27" fill="#f6efe6" opacity="0.34"/>
+  <text x="144" y="120" font-family="Arial, sans-serif" font-size="20" letter-spacing="7" fill="#f6efe6">FEATURED POUR</text>
+  <text x="140" y="818" font-family="Georgia, serif" font-size="58" letter-spacing="8" fill="#f6efe6">EVERY CUP, A RITUAL</text>
+</svg>

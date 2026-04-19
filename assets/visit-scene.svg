@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ruma 52 exterior illustration</title>
+  <desc id="desc">A warm exterior facade with a front door, windows, and potted plants.</desc>
+  <rect width="1200" height="900" fill="#efe3d0"/>
+  <rect y="654" width="1200" height="246" fill="#7a5a43"/>
+  <rect x="164" y="180" width="872" height="496" rx="18" fill="#d2b18b"/>
+  <rect x="186" y="202" width="828" height="452" rx="12" fill="#f6efe5"/>
+  <rect x="506" y="366" width="188" height="288" rx="90" fill="#694c39"/>
+  <rect x="540" y="400" width="120" height="254" rx="56" fill="#2f2018"/>
+  <circle cx="636" cy="536" r="8" fill="#d7b08f"/>
+  <g fill="#dcb88d">
+    <rect x="248" y="270" width="190" height="240" rx="12"/>
+    <rect x="762" y="270" width="190" height="240" rx="12"/>
+  </g>
+  <g fill="#fff7ea">
+    <rect x="270" y="292" width="146" height="196"/>
+    <rect x="784" y="292" width="146" height="196"/>
+  </g>
+  <g fill="#c79f73">
+    <rect x="338" y="292" width="10" height="196"/>
+    <rect x="852" y="292" width="10" height="196"/>
+    <rect x="270" y="384" width="146" height="10"/>
+    <rect x="784" y="384" width="146" height="10"/>
+  </g>
+  <path d="M212 676h776c-20 82-86 124-198 124H408c-110 0-176-42-196-124Z" fill="#c79f73"/>
+  <g>
+    <path d="M200 738c0-88 72-160 160-160 34 0 66 10 92 28-12 94-58 160-138 198-76-10-114-32-114-66Z" fill="#5d7557"/>
+    <path d="M924 738c0-88 72-160 160-160 34 0 66 10 92 28-12 94-58 160-138 198-76-10-114-32-114-66Z" fill="#5d7557"/>
+  </g>
+  <text x="98" y="126" font-family="Arial, sans-serif" font-size="22" letter-spacing="8" fill="#694c39">LIPPO KARAWACI</text>
+  <text x="94" y="850" font-family="Georgia, serif" font-size="56" letter-spacing="8" fill="#f7f0e7">COME FIND YOUR TABLE</text>
+</svg>

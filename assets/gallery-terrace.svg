@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ruma 52 terrace illustration</title>
+  <desc id="desc">An outdoor terrace with striped umbrellas, seating, and leafy plants.</desc>
+  <rect width="900" height="900" fill="#d9c0a2"/>
+  <rect y="640" width="900" height="260" fill="#70523f"/>
+  <rect y="580" width="900" height="72" fill="#4e6a5f"/>
+  <circle cx="144" cy="134" r="72" fill="#f4e9da"/>
+  <g>
+    <rect x="128" y="316" width="16" height="264" rx="8" fill="#2c1d17"/>
+    <path d="M40 316c28-90 68-136 108-136s80 46 108 136Z" fill="#f5efe6"/>
+    <path d="M40 316c18-60 42-94 72-104v104ZM256 316c-18-60-42-94-72-104v104Z" fill="#c79d74"/>
+  </g>
+  <g>
+    <rect x="606" y="336" width="16" height="244" rx="8" fill="#2c1d17"/>
+    <path d="M516 336c32-84 72-126 114-126s82 42 114 126Z" fill="#f5efe6"/>
+    <path d="M516 336c20-54 46-84 78-92v92ZM744 336c-20-54-46-84-78-92v92Z" fill="#c79d74"/>
+  </g>
+  <g fill="#2c1d17">
+    <rect x="226" y="676" width="18" height="124" rx="9"/>
+    <rect x="316" y="676" width="18" height="124" rx="9"/>
+    <rect x="210" y="660" width="140" height="18" rx="9"/>
+    <rect x="196" y="612" width="168" height="18" rx="9"/>
+    <rect x="548" y="690" width="18" height="110" rx="9"/>
+    <rect x="638" y="690" width="18" height="110" rx="9"/>
+    <rect x="532" y="674" width="140" height="18" rx="9"/>
+    <rect x="518" y="626" width="168" height="18" rx="9"/>
+  </g>
+  <g opacity="0.95">
+    <path d="M688 676c34-58 84-102 150-132 42 40 62 88 62 144-56 42-120 68-192 80-26-26-34-56-20-92Z" fill="#4e6a5f"/>
+    <path d="M60 752c12-66 52-126 118-178 86 38 138 96 156 172-64 34-144 52-240 54-24-12-36-28-34-48Z" fill="#5d7557"/>
+  </g>
+  <text x="70" y="848" font-family="Georgia, serif" font-size="44" letter-spacing="6" fill="#f7f0e7">TERRACE MORNING</text>
+</svg>
