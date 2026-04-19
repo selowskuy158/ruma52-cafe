@@ -1,0 +1,1031 @@
+<!DOCTYPE html><html lang="en" style="--sage: oklch(65% 0.09 60); --latte: oklch(78% 0.06 55); font-size: 108%;"><head>
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruma 52 — Home Cafe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=DM+Sans:wght@300;400;500&amp;family=Josefin+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: oklch(96% 0.015 80);
+    --cream-mid: oklch(92% 0.02 75);
+    --espresso: oklch(18% 0.04 50);
+    --latte: oklch(72% 0.07 65);
+    --sage: oklch(52% 0.07 148);
+    --sage-pale: oklch(88% 0.04 148);
+    --warm-white: oklch(98.5% 0.008 80);
+    --brown-mid: oklch(40% 0.06 55);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--espresso);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 48px;
+    transition: background 0.5s, padding 0.4s, backdrop-filter 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    padding: 16px 48px;
+    border-bottom: 1px solid oklch(88% 0.02 75);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--warm-white); text-decoration: none;
+    transition: color 0.4s;
+  }
+  nav.scrolled .nav-logo { color: var(--espresso); }
+  .nav-logo img { width: 36px; height: 36px; object-fit: cover; border-radius: 50%; transition: opacity 0.4s; opacity: 0.9; }
+  nav.scrolled .nav-logo img { opacity: 1; }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.85);
+    transition: color 0.3s; font-weight: 400;
+  }
+  nav.scrolled .nav-links a { color: var(--brown-mid); }
+  .nav-links a:hover { color: var(--latte); }
+  nav.scrolled .nav-links a:hover { color: var(--espresso); }
+
+  .nav-cta {
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.6); color: white;
+    padding: 10px 22px; text-decoration: none; border-radius: 2px;
+    transition: all 0.3s; font-weight: 400;
+  }
+  nav.scrolled .nav-cta { border-color: var(--espresso); color: var(--espresso); }
+  .nav-cta:hover { background: white; color: var(--espresso); }
+  nav.scrolled .nav-cta:hover { background: var(--espresso); color: var(--warm-white); }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url("https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover1'-2.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424");
+    background-size: cover; background-position: center 30%;
+    transform: scale(1.08);
+    transition: transform 0.1s linear;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(20,10,5,0.45) 0%,
+      rgba(20,10,5,0.2) 60%,
+      rgba(20,10,5,0.55) 100%
+    );
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 48px;
+    max-width: 780px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-family: 'Josefin Sans', sans-serif; line-height: 4;
+    color: rgb(245, 241, 234); margin-bottom: 20px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.9s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Josefin Sans', serif;
+    font-size: clamp(72px, 9vw, 130px);
+    font-weight: 300; line-height: 0.9;
+    color: rgb(245, 241, 234); margin-bottom: 28px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp 1s 0.5s forwards;
+  }
+  .hero-title em { font-style: italic; font-weight: 300; }
+  .hero-sub {
+    font-size: 16px; font-weight: 300; line-height: 1.6;
+    font-family: 'Josefin Sans', sans-serif;
+    color: oklch(97% 0.015 75);
+    text-shadow: 0 1px 12px rgba(20,10,5,0.5);
+    max-width: 480px; margin-left: auto; margin-right: auto; margin-bottom: 48px;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.9s 0.75s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.9s 0.95s forwards;
+  }
+  .btn-primary {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--warm-white); color: var(--espresso);
+    padding: 16px 36px; text-decoration: none;
+    font-weight: 500; transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  .btn-primary:hover { background: transparent; color: white; border-color: white; }
+  .btn-ghost {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.5); color: white;
+    padding: 16px 36px; text-decoration: none;
+    font-weight: 400; transition: all 0.3s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+
+  .hero-scroll {
+    position: absolute; bottom: 36px; right: 48px; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s 1.4s forwards;
+  }
+  .hero-scroll span {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); writing-mode: vertical-rl;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    animation: scrollPulse 2s 2s infinite;
+  }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(1.2); opacity: 1; }
+  }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  .delay-1 { transition-delay: 0.1s !important; }
+  .delay-2 { transition-delay: 0.2s !important; }
+  .delay-3 { transition-delay: 0.3s !important; }
+  .delay-4 { transition-delay: 0.4s !important; }
+
+  /* ── SHARED ── */
+  section { position: relative; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 20px; display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 300; line-height: 1.1;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 140px 0;
+    background: var(--warm-white);
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .about-image-wrap {
+    position: relative; height: 640px; overflow: hidden;
+  }
+  .about-image-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  .about-image-wrap:hover img { transform: scale(1.04); }
+  .about-image-tag {
+    position: absolute; bottom: -1px; right: -1px;
+    background: var(--cream-mid); padding: 18px 24px;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--brown-mid);
+  }
+  .about-text { padding-right: 40px; }
+  .about-text .section-title { margin-bottom: 32px; }
+  .about-text p {
+    font-size: 17px; line-height: 1.85; font-weight: 300;
+    color: var(--brown-mid); margin-bottom: 24px;
+  }
+  .about-stats {
+    display: flex; gap: 48px; margin-top: 56px;
+    padding-top: 40px; border-top: 1px solid var(--cream-mid);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 300; line-height: 1;
+    color: var(--espresso); margin-bottom: 6px;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); }
+
+  /* ── MENU ── */
+  #menu { padding: 140px 0; background: var(--cream); }
+  .menu-header { text-align: center; margin-bottom: 64px; }
+  .menu-header .section-title { margin-bottom: 16px; }
+  .menu-header p { font-size: 16px; color: var(--brown-mid); font-weight: 300; }
+
+  .menu-tabs {
+    display: flex; justify-content: center; gap: 4px;
+    margin-bottom: 64px; flex-wrap: wrap;
+  }
+  .tab-btn {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    border: 1px solid var(--cream-mid); background: transparent;
+    color: var(--brown-mid); padding: 12px 28px; cursor: pointer;
+    transition: all 0.3s; font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn:hover { border-color: var(--espresso); color: var(--espresso); }
+  .tab-btn.active { background: var(--espresso); color: var(--warm-white); border-color: var(--espresso); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  .menu-card {
+    background: var(--warm-white); padding: 40px 36px;
+    position: relative; overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: default;
+  }
+  .menu-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--sage);
+    transition: width 0.4s ease;
+  }
+  .menu-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(44,26,14,0.1); }
+  .menu-card:hover::after { width: 100%; }
+  .menu-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400; margin-bottom: 10px;
+  }
+  .menu-card-desc {
+    font-size: 13px; font-weight: 300; color: var(--brown-mid);
+    line-height: 1.6; margin-bottom: 24px;
+  }
+  .menu-card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .menu-card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: var(--sage);
+  }
+  .menu-card-tag {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--latte); border: 1px solid var(--latte); padding: 5px 12px;
+  }
+  .menu-signature { border-top: 3px solid var(--sage-pale); }
+
+  .menu-cta-row { text-align: center; margin-top: 56px; }
+  .btn-outline {
+    display: inline-block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1px solid var(--espresso); color: var(--espresso);
+    padding: 16px 40px; text-decoration: none; font-weight: 400;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { background: var(--espresso); color: var(--warm-white); }
+
+  /* ── GALLERY ── */
+  #gallery { padding: 140px 0; background: var(--espresso); }
+  .gallery-header { color: var(--warm-white); margin-bottom: 64px; }
+  .gallery-header .section-label { color: var(--latte); }
+  .gallery-header .section-title { color: var(--warm-white); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 4px;
+  }
+  .g-item { overflow: hidden; position: relative; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+  .g-item:hover img { transform: scale(1.05); }
+  .g1 { grid-column: 1/6; grid-row: 1/3; height: 520px; }
+  .g2 { grid-column: 6/9; grid-row: 1/2; height: 258px; }
+  .g3 { grid-column: 9/13; grid-row: 1/2; height: 258px; }
+  .g4 { grid-column: 6/10; grid-row: 2/3; height: 258px; }
+  .g5 { grid-column: 10/13; grid-row: 2/3; height: 258px; }
+
+  .gallery-caption {
+    text-align: center; margin-top: 48px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-style: italic; font-weight: 300;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { padding: 140px 0; background: var(--cream-mid); }
+  .experience-header { text-align: center; margin-bottom: 96px; }
+  .experience-header .section-title { margin-bottom: 16px; }
+  .experience-header p { font-size: 16px; color: var(--brown-mid); font-weight: 300; max-width: 520px; margin: 0 auto; }
+
+  .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .pillar {
+    background: var(--warm-white); padding: 56px 40px;
+    transition: background 0.4s;
+  }
+  .pillar:hover { background: var(--espresso); }
+  .pillar:hover .pillar-title { color: var(--warm-white); }
+  .pillar:hover .pillar-body { color: rgba(245,240,232,0.6); }
+  .pillar:hover .pillar-icon { color: var(--latte); }
+  .pillar:hover .pillar-num { color: rgba(245,240,232,0.15); }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px; font-weight: 300; line-height: 1;
+    color: var(--cream-mid); margin-bottom: 40px;
+    transition: color 0.4s;
+  }
+  .pillar-icon { font-size: 28px; color: var(--sage); margin-bottom: 20px; transition: color 0.4s; }
+  .pillar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 400; margin-bottom: 16px;
+    transition: color 0.4s;
+  }
+  .pillar-body { font-size: 14px; line-height: 1.75; font-weight: 300; color: var(--brown-mid); transition: color 0.4s; }
+
+  /* ── VISIT ── */
+  #visit { padding: 140px 0; background: var(--warm-white); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .visit-info .section-title { margin-bottom: 48px; }
+
+  .visit-block { margin-bottom: 44px; }
+  .visit-block-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 14px; display: block;
+  }
+  .visit-block p { font-size: 16px; font-weight: 300; line-height: 1.9; color: var(--espresso); }
+  .visit-block a { color: var(--espresso); text-decoration: underline; }
+
+  .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+  .hours-row { font-size: 15px; font-weight: 300; line-height: 1.6; }
+  .hours-row .day { color: var(--brown-mid); }
+
+  .map-placeholder {
+    background: var(--cream-mid);
+    height: 480px; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px; position: relative; overflow: hidden;
+  }
+  .map-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 39px, var(--cream) 39px, var(--cream) 40px
+    ),
+    repeating-linear-gradient(
+      90deg, transparent, transparent 39px, var(--cream) 39px, var(--cream) 40px
+    );
+  }
+  .map-inner { position: relative; z-index: 1; text-align: center; }
+  .map-inner .loc-icon { font-size: 32px; margin-bottom: 12px; color: var(--sage); display: block; }
+  .map-inner p { font-size: 13px; letter-spacing: 0.08em; color: var(--brown-mid); }
+  .map-inner a {
+    display: inline-block; margin-top: 20px;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1px solid var(--espresso); color: var(--espresso);
+    padding: 12px 24px; text-decoration: none; transition: all 0.3s;
+  }
+  .map-inner a:hover { background: var(--espresso); color: var(--warm-white); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { padding: 140px 0; background: var(--cream); overflow: hidden; }
+  .testimonials-header { text-align: center; margin-bottom: 72px; }
+
+  .testimonials-track-wrap { overflow: hidden; position: relative; }
+  .testimonials-track-wrap::before,
+  .testimonials-track-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+  }
+  .testimonials-track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+  .testimonials-track-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+
+  .testimonials-track {
+    display: flex; gap: 24px;
+    animation: scrollTrack 40s linear infinite;
+    width: max-content;
+  }
+  .testimonials-track:hover { animation-play-state: paused; }
+
+  @keyframes scrollTrack {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tcard {
+    background: var(--warm-white); padding: 44px 40px;
+    width: 380px; flex-shrink: 0;
+  }
+  .tcard-stars { color: var(--latte); font-size: 16px; margin-bottom: 20px; letter-spacing: 3px; }
+  .tcard-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-style: italic; font-weight: 400;
+    line-height: 1.6; color: var(--espresso); margin-bottom: 28px;
+  }
+  .tcard-author { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); }
+
+  /* ── INSTAGRAM ── */
+  #instagram { padding: 140px 0; background: var(--espresso); }
+  .insta-header { text-align: center; margin-bottom: 16px; }
+  .insta-handle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 72px); font-weight: 300;
+    color: var(--warm-white); letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .insta-sub { font-size: 15px; font-weight: 300; color: rgba(245,240,232,0.55); margin-bottom: 56px; }
+  .insta-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px;
+    margin-bottom: 56px;
+  }
+  .insta-item {
+    aspect-ratio: 1; overflow: hidden; position: relative; cursor: pointer;
+  }
+  .insta-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+  .insta-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(44,26,14,0.5); opacity: 0; transition: opacity 0.3s;
+  }
+  .insta-item:hover img { transform: scale(1.08); }
+  .insta-item:hover::after { opacity: 1; }
+  .insta-cta { text-align: center; }
+  .btn-insta {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1px solid rgba(245,240,232,0.35); color: var(--warm-white);
+    padding: 16px 40px; text-decoration: none; font-weight: 400;
+    transition: all 0.3s;
+  }
+  .btn-insta:hover { background: var(--warm-white); color: var(--espresso); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: oklch(13% 0.04 50);
+    padding: 80px 0 40px;
+    color: rgba(245,240,232,0.7);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 64px; margin-bottom: 64px;
+  }
+  .footer-brand-logo {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+  }
+  .footer-brand-logo img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; opacity: 0.85; }
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; color: var(--warm-white); letter-spacing: 0.04em;
+  }
+  .footer-tagline { font-size: 14px; font-weight: 300; line-height: 1.7; max-width: 260px; margin-bottom: 32px; }
+  .footer-socials { display: flex; gap: 20px; }
+  .footer-socials a {
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s;
+  }
+  .footer-socials a:hover { color: var(--latte); }
+
+  .footer-col h4 {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--latte); margin-bottom: 24px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { font-size: 14px; font-weight: 300; color: rgba(245,240,232,0.6); text-decoration: none; transition: color 0.3s; }
+  .footer-col ul a:hover { color: var(--warm-white); }
+  .footer-col p { font-size: 14px; font-weight: 300; line-height: 1.9; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(245,240,232,0.08);
+    padding-top: 36px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 12px; color: rgba(245,240,232,0.3); }
+
+  /* ── TWEAKS PANEL ── */
+  #tweaks-panel {
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    background: white; border: 1px solid var(--cream-mid);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    width: 280px; padding: 24px; border-radius: 2px;
+  }
+  #tweaks-panel.show { display: block; }
+  #tweaks-panel h3 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--espresso); margin-bottom: 20px; }
+  .tweak-row { margin-bottom: 16px; }
+  .tweak-row label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown-mid); display: block; margin-bottom: 6px; }
+  .tweak-row input[type=range] { width: 100%; cursor: pointer; }
+  .tweak-row select { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px; border: 1px solid var(--cream-mid); background: white; color: var(--espresso); cursor: pointer; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .container { padding: 0 24px; }
+    .hero-content { padding: 0 24px 72px; }
+    .about-grid, .visit-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-text { padding-right: 0; }
+    .about-image-wrap { height: 400px; }
+    .menu-panel.active { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .g1 { grid-column: 1/-1; height: 280px; }
+    .g2, .g3, .g4, .g5 { grid-column: span 1; height: 200px; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .insta-item:nth-child(4), .insta-item:nth-child(5) { display: none; }
+  }
+</style>
+
+<template id="__bundler_thumbnail" data-bg-color="#2c1a0e">
+  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <rect width="400" height="300" fill="#2c1a0e"/>
+    <!-- House shape -->
+    <path d="M160 160 L160 220 L240 220 L240 160 L200 130 Z" fill="#f5f0e8" opacity="0.9"/>
+    <!-- Spoon -->
+    <ellipse cx="185" cy="175" rx="6" ry="9" fill="#2c1a0e"/>
+    <rect x="183" y="184" width="4" height="18" fill="#2c1a0e"/>
+    <!-- Fork -->
+    <rect x="197" y="168" width="2" height="8" fill="#2c1a0e"/>
+    <rect x="201" y="168" width="2" height="8" fill="#2c1a0e"/>
+    <rect x="197" y="176" width="6" height="3" fill="#2c1a0e"/>
+    <rect x="199" y="179" width="2" height="13" fill="#2c1a0e"/>
+    <!-- 52 badge -->
+    <circle cx="230" cy="172" r="12" fill="#f5f0e8"/>
+    <text x="230" y="177" text-anchor="middle" font-size="10" fill="#2c1a0e" font-family="sans-serif" font-weight="bold">52</text>
+    <!-- Brand name -->
+    <text x="200" y="250" text-anchor="middle" font-size="18" fill="#c4a882" font-family="Georgia, serif" letter-spacing="4">RUMA 52</text>
+    <text x="200" y="268" text-anchor="middle" font-size="9" fill="rgba(245,240,232,0.5)" font-family="sans-serif" letter-spacing="2">HOME CAFE</text>
+  </svg>
+</template>
+</head>
+<body data-cc-id="cc-1">
+
+<!-- NAV -->
+<nav id="main-nav" class="" data-cc-id="cc-4">
+  <a href="#hero" class="nav-logo">
+    <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/logo%20.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52">
+    Ruma 52
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Space</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <a href="#menu" class="nav-cta">View Menu</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="hero-bg" style="transform: scale(1.08) translateY(0px);"></div>
+  <div class="hero-overlay" data-cc-id="cc-3"></div>
+  <div class="hero-content" data-cc-id="cc-1">
+    <span class="hero-eyebrow" data-cc-id="cc-2" style="line-height: 4;">&nbsp;&nbsp;AN OLD HOUSE TURNED COZY HOME CAFE</span>
+    <h1 class="hero-title">Ruma<br><em>52</em></h1>
+    <p class="hero-sub">A place that feels like home. Where every cup is a quiet moment, and every visit stays with you.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">View Menu</a>
+      <a href="#visit" class="btn-ghost">Visit Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding-top: 140px; padding-bottom: 140px;" data-cc-id="cc-2">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal-left about-image-wrap visible">
+        <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover1'-2.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52 interior seating area">
+        <div class="about-image-tag">Est. 2026 · Lippo Karawaci</div>
+      </div>
+      <div class="about-text reveal-right visible">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">A house.<br>A feeling.<br><em>A ritual.</em></h2>
+        <p>Ruma 52 was born from a simple idea: what if your favourite cafe felt exactly like home? We took an old house and turned it into a place where time slows down — where the coffee is made with care, the food is honest and good, and the atmosphere holds you just right.</p>
+        <p>Every corner was chosen deliberately. The paper lanterns, the Eames chairs, the warm light through the blinds — all of it designed to make you stay a little longer than you planned.</p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">52</div>
+            <div class="stat-label">The Address</div>
+          </div>
+          <div>
+            <div class="stat-num">12+</div>
+            <div class="stat-label">Signature Drinks</div>
+          </div>
+          <div>
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Good Mornings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="menu-header reveal visible">
+      <span class="section-label">What We Make</span>
+      <h2 class="section-title">The Menu</h2>
+      <p>Specialty coffee, handcrafted drinks, and pastries baked with intention.</p>
+    </div>
+
+    <div class="menu-tabs reveal visible">
+      <button class="tab-btn active" data-tab="signature">Signature</button>
+      <button class="tab-btn" data-tab="coffee">Coffee</button>
+      <button class="tab-btn" data-tab="matcha">Matcha</button>
+      <button class="tab-btn" data-tab="tea">Tea</button>
+      <button class="tab-btn" data-tab="pastry">Pastry</button>
+    </div>
+
+    <div id="tab-signature" class="menu-panel active">
+      <div class="menu-card menu-signature">
+        <div class="menu-card-name">Kopi Susu Ruma</div>
+        <div class="menu-card-desc">Our house milk coffee. The one that started it all.</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">32</span>
+          <span class="menu-card-tag">House Special</span>
+        </div>
+      </div>
+      <div class="menu-card menu-signature">
+        <div class="menu-card-name">Sea Salt Foam</div>
+        <div class="menu-card-desc">Salty cloud floating over cold brew. A gentle contrast.</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">38</span>
+          <span class="menu-card-tag">Fan Favourite</span>
+        </div>
+      </div>
+      <div class="menu-card menu-signature">
+        <div class="menu-card-name">52° Chocolate</div>
+        <div class="menu-card-desc">Hot or cold, rich or gentle — you choose the temperature, we craft the moment.</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">46</span>
+          <span class="menu-card-tag">Signature</span>
+        </div>
+      </div>
+      <div class="menu-card menu-signature" style="grid-column: span 1;">
+        <div class="menu-card-name">Burnt Mocha</div>
+        <div class="menu-card-desc">Mocha that you'd enjoy on a cozy campfire night. Smoky, warm, indulgent.</div>
+        <div class="menu-card-footer">
+          <span class="menu-card-price">55</span>
+          <span class="menu-card-tag">Premium</span>
+        </div>
+      </div>
+      <div class="menu-card" style="background: url('https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.00%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424') center/cover; grid-column: span 2; min-height: 240px; position: relative;">
+        <div style="position:absolute;inset:0;background:rgba(44,26,14,0.55);"></div>
+        <div style="position:relative;z-index:1;color:white;">
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.7;margin-bottom:10px;">Crafted with care</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;">Every cup, a ritual.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-coffee" class="menu-panel">
+      <div class="menu-card"><div class="menu-card-name">Black</div><div class="menu-card-desc">Pure coffee energy — espresso, americano.</div><div class="menu-card-footer"><span class="menu-card-price">27</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">White</div><div class="menu-card-desc">Creamy comfort mode — latte, flat white, magic, cap, piccolo.</div><div class="menu-card-footer"><span class="menu-card-price">32</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Manual Brew</div><div class="menu-card-desc">Single origin. Slow and deliberate. Worth the wait.</div><div class="menu-card-footer"><span class="menu-card-price">32</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Passion Tonic</div><div class="menu-card-desc">Bright, sparkling, unexpected. Coffee on vacation.</div><div class="menu-card-footer"><span class="menu-card-price">36</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Mont Blanc</div><div class="menu-card-desc">An elevated cup. For those who know.</div><div class="menu-card-footer"><span class="menu-card-price">42</span></div></div>
+    </div>
+
+    <div id="tab-matcha" class="menu-panel">
+      <div class="menu-card"><div class="menu-card-name">Kyoto Fog Matcha</div><div class="menu-card-desc">Warm matcha for a lazy day. Gentle and earthy.</div><div class="menu-card-footer"><span class="menu-card-price">36</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Premium Matcha Latte</div><div class="menu-card-desc">Perfect for deep, meditative sips.</div><div class="menu-card-footer"><span class="menu-card-price">38</span></div></div>
+      <div class="menu-card menu-signature"><div class="menu-card-name">Ceremonial Matcha</div><div class="menu-card-desc">First harvest — seasonal &amp; limited. Ask away. The purest expression.</div><div class="menu-card-footer"><span class="menu-card-price">60</span><span class="menu-card-tag">Seasonal</span></div></div>
+    </div>
+
+    <div id="tab-tea" class="menu-panel">
+      <div class="menu-card"><div class="menu-card-name">Iced Tea</div><div class="menu-card-desc">Clean and refreshing. The palate reset.</div><div class="menu-card-footer"><span class="menu-card-price">18</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Classic Hot Tea</div><div class="menu-card-desc">Served in pot — jasmine green, earl grey, english breakfast.</div><div class="menu-card-footer"><span class="menu-card-price">30</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Iced Lychee Tea</div><div class="menu-card-desc">Floral, fruity, delicate. Summer in a glass.</div><div class="menu-card-footer"><span class="menu-card-price">25</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Passionfruit Iced Tea</div><div class="menu-card-desc">Bright, tangy, tropical. Mood-lifter guaranteed.</div><div class="menu-card-footer"><span class="menu-card-price">25</span></div></div>
+    </div>
+
+    <div id="tab-pastry" class="menu-panel">
+      <div class="menu-card"><div class="menu-card-name">Butter Croissant</div><div class="menu-card-desc">Classic. Flaky. Golden. Never fails.</div><div class="menu-card-footer"><span class="menu-card-price">26</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Almond Croissant</div><div class="menu-card-desc">Rich almond cream tucked inside. A weekend treat.</div><div class="menu-card-footer"><span class="menu-card-price">34</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Pain au Chocolat</div><div class="menu-card-desc">Dark chocolate wrapped in laminated dough. Effortlessly good.</div><div class="menu-card-footer"><span class="menu-card-price">32</span></div></div>
+      <div class="menu-card"><div class="menu-card-name">Pain Suisse</div><div class="menu-card-desc">Custard cream and chocolate chips. Soft, pillowy, perfect.</div><div class="menu-card-footer"><span class="menu-card-price">35</span></div></div>
+      <div class="menu-card menu-signature"><div class="menu-card-name">Kouign Amann</div><div class="menu-card-desc">Caramelised, crispy-edged Breton pastry. Our most-asked-about item.</div><div class="menu-card-footer"><span class="menu-card-price">37</span><span class="menu-card-tag">Must Try</span></div></div>
+    </div>
+
+    <div class="menu-cta-row reveal visible">
+      <a href="img/menu.png" target="_blank" class="btn-outline">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="gallery-header reveal visible">
+      <span class="section-label">The Space</span>
+      <h2 class="section-title">Come as you are.<br><em>Stay as long as you like.</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item g1 reveal visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.47.37%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Seating area"></div>
+      <div class="g-item g2 reveal delay-1 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/lamp.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Cafe detail"></div>
+      <div class="g-item g3 reveal delay-2 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.47%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Interior detail"></div>
+      <div class="g-item g4 reveal delay-1 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.49.45%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Coffee bar"></div>
+      <div class="g-item g5 reveal delay-3 visible"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.10%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Outdoor terrace"></div>
+    </div>
+    <p class="gallery-caption reveal visible">"Every corner was placed with intention."</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="experience-header">
+      <span class="section-label">Why Ruma 52</span>
+      <h2 class="section-title">More than a cafe.<br><em>A feeling.</em></h2>
+      <p>We curate every detail — from the beans in your cup to the light through the blinds — so you always leave feeling better than when you arrived.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal visible">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Specialty Coffee</div>
+        <p class="pillar-body">Sourced carefully. Brewed with precision. Whether you're a filter devotee or a milk-coffee purist, we've got your cup.</p>
+      </div>
+      <div class="pillar reveal delay-1 visible">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Curated Ambience</div>
+        <p class="pillar-body">Paper lanterns, mid-century chairs, warm blinds, a vinyl spinning in the corner. The space is the experience.</p>
+      </div>
+      <div class="pillar reveal delay-2 visible">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Honest Food</div>
+        <p class="pillar-body">Freshly baked pastries and handcrafted drinks made daily. Nothing frozen. Nothing rushed. Everything intentional.</p>
+      </div>
+      <div class="pillar reveal delay-3 visible">
+        <div class="pillar-num">04</div>
+        <div class="pillar-title">Your Pace</div>
+        <p class="pillar-body">Whether it's a solo study session, a slow weekend brunch, or a catch-up with friends — Ruma 52 holds space for all of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info reveal-left visible">
+        <span class="section-label">Find Us</span>
+        <h2 class="section-title">Come find<br>your table.</h2>
+        <div style="height:40px;"></div>
+        <div class="visit-block">
+          <span class="visit-block-label">Address</span>
+          <p>Jl. Ruma No. 52<br>Lippo Karawaci, Tangerang<br>Banten, Indonesia</p>
+        </div>
+        <div class="visit-block">
+          <span class="visit-block-label">Opening Hours</span>
+          <div class="hours-grid">
+            <div class="hours-row"><span class="day">Tue — Fri</span><br>08:00 – 17:00</div>
+            <div class="hours-row"><span class="day">Sat — Sun</span><br>08:00 – 18:00</div>
+            <div class="hours-row" style="grid-column:span 2;"><span class="day">Monday</span> — Closed</div>
+          </div>
+        </div>
+        <div class="visit-block">
+          <span class="visit-block-label">Reservations &amp; Enquiries</span>
+          <p>For group bookings or enquiries:<br><a href="https://instagram.com/ruma____52" target="_blank">@ruma____52</a> on Instagram</p>
+        </div>
+        <div class="visit-block">
+          <span class="visit-block-label">Parking</span>
+          <p>Street parking available.<br>Easy access by car or motorcycle.</p>
+        </div>
+      </div>
+      <div class="reveal-right visible">
+        <div class="map-placeholder">
+          <div class="map-inner">
+            <span class="loc-icon">◎</span>
+            <p>Jl. Ruma No. 52, Lippo Karawaci, Tangerang</p>
+            <a href="https://maps.google.com/maps/search/ruma+52+lippo+karawaci" target="_blank">Open in Google Maps →</a>
+          </div>
+        </div>
+        <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/cover.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52 entrance" style="width:100%;height:260px;object-fit:cover;display:block;margin-top:4px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="testimonials-header">
+      <span class="section-label reveal visible">What People Say</span>
+      <h2 class="section-title reveal visible">Heard from our<br><em>regulars.</em></h2>
+    </div>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track" id="testimonials-track">
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"Honestly the most beautiful cafe I've been to in Bandung. The Sea Salt Foam changed my life a little."</div><div class="tcard-author">Alisha R.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"The kind of place where you come for one hour and leave three hours later. No regrets."</div><div class="tcard-author">Dimas K.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"I've tried every croissant in the city. Ruma 52's Kouign Amann is the one."</div><div class="tcard-author">Nadia F.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"The vibe is unmatched. It genuinely feels like someone's very stylish home. Love everything about it."</div><div class="tcard-author">Rafi W.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"My go-to spot for remote work. The wifi is solid, the coffee is excellent, and no one rushes you."</div><div class="tcard-author">Tarisha M.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"Burnt Mocha is criminally good. I think about it on weekdays."</div><div class="tcard-author">Bintang A.</div></div>
+      <!-- duplicated for seamless loop -->
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"Honestly the most beautiful cafe I've been to in Bandung. The Sea Salt Foam changed my life a little."</div><div class="tcard-author">Alisha R.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"The kind of place where you come for one hour and leave three hours later. No regrets."</div><div class="tcard-author">Dimas K.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"I've tried every croissant in the city. Ruma 52's Kouign Amann is the one."</div><div class="tcard-author">Nadia F.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"The vibe is unmatched. It genuinely feels like someone's very stylish home. Love everything about it."</div><div class="tcard-author">Rafi W.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"My go-to spot for remote work. The wifi is solid, the coffee is excellent, and no one rushes you."</div><div class="tcard-author">Tarisha M.</div></div>
+      <div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-quote">"Burnt Mocha is criminally good. I think about it on weekdays."</div><div class="tcard-author">Bintang A.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" style="padding-top: 140px; padding-bottom: 140px;">
+  <div class="container">
+    <div class="insta-header reveal visible">
+      <div class="insta-handle">@ruma____52</div>
+      <p class="insta-sub">Follow along for daily moments, seasonal specials, and the occasional vinyl update.</p>
+    </div>
+    <div class="insta-grid reveal visible">
+      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.47.37%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.00%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.48.35%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.24%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+      <div class="insta-item"><img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/Screenshot%202026-04-14%20at%2010.51.29%20AM.png?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt=""></div>
+    </div>
+    <div class="insta-cta reveal">
+      <a href="https://instagram.com/ruma____52" target="_blank" class="btn-insta">
+        Follow on Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <img src="https://6cb1f26c-83c2-414d-80d5-aca19e62ed9a.claudeusercontent.com/v1/design/projects/6cb1f26c-83c2-414d-80d5-aca19e62ed9a/serve/uploads/logo%20.jpg?t=4bfe72879ee8806dba858c06848cd537c74f995cb491b00d47bc2770a302fdc8.9e20d709-5b53-4448-a4e7-5083866b5bd7.41aaebe2-e927-4419-8bb9-02c8d8828ca7.1776611424" alt="Ruma 52">
+          <span class="footer-brand-name">Ruma 52</span>
+        </div>
+        <p class="footer-tagline">An old house turned cozy home cafe. Where every cup is a quiet moment.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/ruma____52" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">The Space</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Tue – Fri<br>08:00 – 17:00<br><br>Sat – Sun<br>08:00 – 18:00<br><br>Monday Closed</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Jl. Ruma No. 52<br>Lippo Karawaci, Tangerang<br><br>@ruma____52<br>on Instagram</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Ruma 52. All rights reserved.</span>
+      <span class="footer-copy">Crafted with care.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TWEAKS PANEL -->
+<div id="tweaks-panel" class="show">
+  <h3>Tweaks</h3>
+  <div class="tweak-row">
+    <label>Accent Color</label>
+    <select id="tweak-accent" onchange="applyTweaks()">
+      <option value="sage">Sage Green (default)</option>
+      <option value="latte">Warm Latte</option>
+      <option value="terracotta">Terracotta</option>
+      <option value="dustyblue">Dusty Blue</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label>Type Scale</label>
+    <input type="range" id="tweak-scale" min="90" max="115" value="100" oninput="applyTweaks()">
+  </div>
+  <div class="tweak-row">
+    <label>Section Spacing</label>
+    <select id="tweak-spacing" onchange="applyTweaks()">
+      <option value="140">Spacious (default)</option>
+      <option value="100">Compact</option>
+      <option value="180">Airy</option>
+    </select>
+  </div>
+</div>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "latte",
+  "scale": 108,
+  "spacing": 140
+}/*EDITMODE-END*/;
+
+// NAV scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Parallax hero
+const heroBg = document.getElementById('hero-bg');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    heroBg.style.transform = `scale(1.08) translateY(${y * 0.25}px)`;
+  }
+}, { passive: true });
+
+// IntersectionObserver reveals
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Menu tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Tweaks
+const accents = {
+  sage: { sage: 'oklch(52% 0.07 148)', latte: 'oklch(72% 0.07 65)' },
+  latte: { sage: 'oklch(65% 0.09 60)', latte: 'oklch(78% 0.06 55)' },
+  terracotta: { sage: 'oklch(55% 0.1 35)', latte: 'oklch(70% 0.08 45)' },
+  dustyblue: { sage: 'oklch(52% 0.08 220)', latte: 'oklch(72% 0.06 210)' },
+};
+
+function applyTweaks() {
+  const ac = document.getElementById('tweak-accent').value;
+  const sc = document.getElementById('tweak-scale').value;
+  const sp = document.getElementById('tweak-spacing').value;
+  const root = document.documentElement;
+  root.style.setProperty('--sage', accents[ac].sage);
+  root.style.setProperty('--latte', accents[ac].latte);
+  document.querySelectorAll('.section-title').forEach(el => {
+    el.style.fontSize = '';
+  });
+  root.style.fontSize = sc + '%';
+  document.querySelectorAll('#about, #menu, #gallery, #experience, #visit, #testimonials, #instagram').forEach(el => {
+    el.style.paddingTop = sp + 'px';
+    el.style.paddingBottom = sp + 'px';
+  });
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { accent: ac, scale: parseInt(sc), spacing: parseInt(sp) } }, '*');
+}
+
+// Load saved tweaks
+(function() {
+  const d = TWEAK_DEFAULTS;
+  document.getElementById('tweak-accent').value = d.accent;
+  document.getElementById('tweak-scale').value = d.scale;
+  document.getElementById('tweak-spacing').value = d.spacing;
+  applyTweaks();
+})();
+
+// Tweaks panel activation
+window.addEventListener('message', (e) => {
+  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('show');
+  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('show');
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+</script>
+
+
+</body></html>
